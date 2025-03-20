@@ -34,7 +34,7 @@ pipeline {
                   mkdir -p get-resources-info/usr/local/bin/
                   cp get-resources-info.sh  get-resources-info/usr/local/bin/
 
-                  chmod +x get-resources-info/usr/local/bin/get_resources_info.sh
+                  chmod +x get-resources-info/usr/local/bin/get-resources-info.sh
                   dpkg-deb --build get-resources-info
                 '''
             }
