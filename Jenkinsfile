@@ -32,7 +32,7 @@ pipeline {
                   mkdir -p get-resources-info/DEBIAN/
                   cp control get-resources-info/DEBIAN/
                   mkdir -p get-resources-info/usr/local/bin/
-                  cp get-resources-info.sh  /usr/local/bin/
+                  cp get-resources-info.sh  get-resources-info/usr/local/bin/
 
                   chmod +x get-resources-info/usr/local/bin/get_resources_info.sh
                   dpkg-deb --build get-resources-info
