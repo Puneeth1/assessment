@@ -30,49 +30,12 @@ pipeline {
                 sh '''
                   
                   mkdir -p get-resources-info/DEBIAN/
+                  cp control get-resources-info/DEBIAN/
+                  mkdir -p get-resources-info/usr/local/bin/
+                  cp get-resources-info.sh  /usr/local/bin/
 
-                  cat << EOF > get-resources-info/DEBIAN/control
-Package: get-resources-info
-Version: 1.0
-Architecture: all
-Maintainer: Devatha Naga Puneeth
-Description: A script to collect system data using gum
-
-EOF
-                mkdir -p get-resources-info/usr/local/bin/
-
-                cat << EOF > get-resources-info/usr/local/bin/get_resources_info.sh
-#!/bin/bash
-
-# Options that are available to the users
-CHOICES=$(gum choose --no-limit "RAM Usage" "CPU Usage" "Disk Free Space" "Network Info")
-
-# Looping through the user selected choices
-while read -r choice; do
-   case "$choice" in
-   "RAM Usage")
-      gum style --bold "RAM Usage"
-      free -h ; echo # added echo to add a newline after printing the output of the command
-      ;;
-   "CPU Usage")
-      gum style --bold "CPU Usage"
-      top -bn ; echo
-      ;;
-   "Disk Free Space")
-      gum style --bold "Disk Free Space"
-      df -h ; echo
-      ;;
-   "Network Info")
-      gum style --bold "Network Info"
-      ip a ; echo
-      ;;
-   esac
-done <<< $CHOICES
-
-exit 0
-EOF
-                chmod +x get-resources-info/usr/local/bin/get_resources_info.sh
-                dpkg-deb --build get-resources-info
+                  chmod +x get-resources-info/usr/local/bin/get_resources_info.sh
+                  dpkg-deb --build get-resources-info
                 '''
             }
         }

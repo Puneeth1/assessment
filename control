@@ -1,0 +1,5 @@
+Package: get-resources-info
+Version: 1.0
+Architecture: all
+Maintainer: Devatha Naga Puneeth
+Description: A script to collect system data
