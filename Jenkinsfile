@@ -9,6 +9,8 @@ pipeline {
                 stage ('test') {
                     steps {
                       echo "hello"
+                      sh 'pwd'
+                      sh 'ls'
                     }
                   }
                 }
