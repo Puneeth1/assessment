@@ -12,7 +12,7 @@ while read -r choice; do
       ;;
    "CPU Usage")
       gum style --bold "CPU Usage"
-      top -bn ; echo
+      top -bn1 ; echo
       ;;
    "Disk Free Space")
       gum style --bold "Disk Free Space"

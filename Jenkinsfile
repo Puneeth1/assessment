@@ -1,30 +1,6 @@
-// pipeline {
-//         agent any
-//             stages {
-//                 stage('Checkout Code') {
-//                     steps {
-//                         git branch: 'main', url: 'https://github.com/Puneeth1/assessment.git'
-//                     }
-//                   }
-//                 stage ('test') {
-//                     steps {
-//                       echo "hello"
-//                       sh 'pwd'
-//                       sh 'ls'
-//                     }
-//                   }
-//                 }
-// }
-
 pipeline {
     agent any
     stages {
-        // stage('Install Dependencies') {
-        //     steps
-        //     {
-        //         sh 'apt-get install lintian'
-        //     }
-        // }
         stage('Build DEB Package') {
             steps {
                 sh '''
