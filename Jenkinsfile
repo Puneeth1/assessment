@@ -18,15 +18,13 @@ pipeline {
         stage('Test DEB Package')
         {
             steps {
-            sh '''
-                    # Validate the package
-                    # lintian get-resources-info.deb
-                    
+            sh '''        
                     # List package contents
                     dpkg -c get-resources-info.deb
                '''
             }
         }
+        
         stage('Archive DEB Artifacts') {
             steps {
                 archiveArtifacts artifacts: '*.deb', fingerprint: true
